@@ -1,0 +1,56 @@
+services:
+  marquez-api:
+    image: marquezproject/marquez:0.47.0
+    container_name: marquez-api
+    environment:
+      - MARQUEZ_PORT=${API_PORT:-5000}
+      - MARQUEZ_ADMIN_PORT=${API_ADMIN_PORT:-5001}
+      - POSTGRES_HOST=postgres
+      - SEARCH_ENABLED=${SEARCH_ENABLED:-false}
+    ports:
+      - "${API_PORT:-5000}:${API_PORT:-5000}"
+      - "${API_ADMIN_PORT:-5001}:${API_ADMIN_PORT:-5001}"
+    links:
+      - "postgres:postgres"
+    depends_on:
+      postgres:
+        condition: service_healthy   # waits for DB to be healthy
+    # no entrypoint override needed
+
+  marquez-web:
+    image: marquezproject/marquez-web:0.47.0
+    container_name: marquez-web
+    environment:
+      - MARQUEZ_HOST=marquez-api
+      - MARQUEZ_PORT=${API_PORT:-5000}
+      - REACT_APP_ADVANCED_SEARCH=false
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - marquez-api
+
+  postgres:
+    image: postgres:14
+    container_name: marquez-db
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - MARQUEZ_DB=marquez
+      - MARQUEZ_USER=marquez
+      - MARQUEZ_PASSWORD=marquez
+    volumes:
+      - db-backup:/var/lib/postgresql/data
+      - ./init/marquez.sql:/docker-entrypoint-initdb.d/marquez.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-backup:
