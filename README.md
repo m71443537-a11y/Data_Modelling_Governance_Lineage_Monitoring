@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Snowflake Data Lineage & Observability Platform
 A production-ready data observability and lineage framework built to monitor dbt workflows executing on a Snowflake Data Warehouse. This project integrates automated data lineage tracking (OpenLineage) with a unified monitoring stack consisting of Prometheus, Grafana, Loki, Promtail, and Marquez.
 
@@ -162,3 +163,5 @@ Promtail   Internal       Mapped to /var/log & Docker Socket      None Required
 > The stack is explicitly configured to load the unsigned grafana-snowflake-datasource plugin located in ./grafana/plugins. Do not delete this directory.
 ### Data Retention: 
 > Prometheus metrics are explicitly pinned to a 30-day retention window via configuration flags (--storage.tsdb.retention.time=30d).
+
+
