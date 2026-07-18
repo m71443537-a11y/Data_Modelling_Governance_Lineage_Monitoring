@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "Raw orders data from Snowflake"
+    config:
+      elementary:
+        timestamp_column: "created_at"
+
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 1
+          max_value: 10000000
+
+    columns:
+      - name: order_id
+        description: "Primary key"
+        data_tests:
+          - not_null
+          - unique
+          - elementary.column_anomalies:
+              column_anomalies:
+                - null_count
+                - null_percent
+                - distinct_count
+                - duplicate_count
+
+      - name: customer_id
+        data_tests:
+          - not_null
+          - elementary.column_anomalies:
+              column_anomalies:
+                - null_count
+
+      - name: amount
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 100000
+          - elementary.column_anomalies:
+              column_anomalies:
+                - average
+                - min_value
+                - max_value
+                - null_count
+
+      - name: status
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              value_set: ['shipped', 'pending', 'delivered', 'cancelled']
+          - elementary.column_anomalies:
+              column_anomalies:
+                - null_count
+                - distinct_count
+
+      - name: customer_email
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_match_regex:
+              regex: '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+          - elementary.column_anomalies:
+              column_anomalies:
+                - null_count
+                - average_length
+
+  - name: my_second_dbt_model
+    description: "Transformed orders data"
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique 
+
+  

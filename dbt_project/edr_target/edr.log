@@ -1,0 +1,324 @@
+2026-04-09 07:52:01 — INFO — Running with edr=0.23.1
+2026-04-09 07:52:12 — DEBUG — Target 'elementary' not found in profile outputs
+2026-04-09 07:52:12 — INFO — Installing packages for edr internal dbt package...
+2026-04-09 07:52:12 — INFO — Running dbt command --log-format json deps --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[33;20m2026-04-09 07:57:22 — WARNING — Transient error detected for dbt command '--log-format json deps --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' (attempt 1/3). Retrying...[0m
+2026-04-09 08:13:53 — INFO — Running with edr=0.23.1
+2026-04-09 08:14:05 — DEBUG — Target 'elementary' not found in profile outputs
+2026-04-09 08:14:05 — INFO — Installing packages for edr internal dbt package...
+2026-04-09 08:14:05 — INFO — Running dbt command --log-format json deps --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:15:01 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 08:15:03 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Runtime Error
+  outputs not specified in profile 'elementary'[0m
+2026-04-09 08:15:03 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:15:05 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 142, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 351, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 209, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 246, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Runtime Error
+  outputs not specified in profile 'elementary'
+2026-04-09 08:15:05 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 08:15:06 — ERROR — Failed to parse Elementary's database and schema.[0m
+2026-04-09 08:15:06 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 08:15:08 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Runtime Error
+  outputs not specified in profile 'elementary'
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 351, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 209, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 246, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Runtime Error
+  outputs not specified in profile 'elementary'
+2026-04-09 08:38:28 — INFO — Running with edr=0.23.1
+2026-04-09 08:38:45 — DEBUG — Resolved adapter type 'snowflake' for target 'elementary'
+2026-04-09 08:38:45 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:40:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 269
+[31;20m2026-04-09 08:40:18 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-04-09 08:40:19 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:40:40 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 485
+2026-04-09 08:40:40 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:41:02 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 449
+2026-04-09 08:41:02 — INFO — Elementary's database and schema: 'PRACTICE_DB.ELEMENTARY'
+2026-04-09 08:41:02 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 08:43:10 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "69137e33-50e5-4d81-bdf1-abf1c244469a", "pid": 6830, "thread": "MainThread", "ts": "2026-04-09T15:42:59.912912Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 351, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 209, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 246, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "69137e33-50e5-4d81-bdf1-abf1c244469a", "pid": 6830, "thread": "MainThread", "ts": "2026-04-09T15:42:59.912912Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+2026-04-09 08:57:46 — INFO — Running with edr=0.23.1
+2026-04-09 08:57:59 — DEBUG — Resolved adapter type 'snowflake' for target 'elementary'
+2026-04-09 08:57:59 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:59:05 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 269
+[31;20m2026-04-09 08:59:05 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-04-09 08:59:05 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:59:21 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 485
+2026-04-09 08:59:21 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 08:59:36 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 449
+2026-04-09 08:59:36 — INFO — Elementary's database and schema: 'PRACTICE_DB.ELEMENTARY'
+2026-04-09 08:59:36 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 08:59:57 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "3a7d8a80-9b34-41c7-9649-612afe1ed568", "pid": 7119, "thread": "MainThread", "ts": "2026-04-09T15:59:55.282307Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 351, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 209, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 246, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "3a7d8a80-9b34-41c7-9649-612afe1ed568", "pid": 7119, "thread": "MainThread", "ts": "2026-04-09T15:59:55.282307Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+2026-04-09 09:05:09 — INFO — Running with edr=0.23.1
+2026-04-09 09:05:24 — DEBUG — Resolved adapter type 'snowflake' for target 'elementary'
+2026-04-09 09:05:24 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:06:30 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 269
+[31;20m2026-04-09 09:06:30 — ERROR — Unable to get the latest invocation: list index out of range[0m
+2026-04-09 09:06:30 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:06:46 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 485
+2026-04-09 09:06:46 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:07:01 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 449
+2026-04-09 09:07:01 — INFO — Elementary's database and schema: 'PRACTICE_DB.ELEMENTARY'
+2026-04-09 09:07:01 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+[31;20m2026-04-09 09:07:32 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "d93a7dc1-bdb4-49f2-997f-2a11a5710230", "pid": 7236, "thread": "MainThread", "ts": "2026-04-09T16:07:27.960103Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/report/report.py", line 84, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 52, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/api/tests/tests.py", line 64, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/fetchers/tests/tests.py", line 26, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 351, in run_operation
+    result = self._run_command(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 209, in _run_command
+    return self._inner_run_command_with_retries(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/command_line_dbt_runner.py", line 246, in _inner_run_command_with_retries
+    result = self._inner_run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/clients/dbt/api_dbt_runner.py", line 59, in _inner_run_command
+    raise DbtCommandError(
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+{"info": {"name": "RunningOperationCaughtError", "code": "Q001", "msg": "Encountered an error while running operation: Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized.", "level": "error", "invocationId": "d93a7dc1-bdb4-49f2-997f-2a11a5710230", "pid": 7236, "thread": "MainThread", "ts": "2026-04-09T16:07:27.960103Z"}, "data": {"exc": "Database Error\n  002003 (02000): SQL compilation error:\n  Schema 'PRACTICE_DB.ELEMENTARY' does not exist or not authorized."}}
+2026-04-09 09:22:54 — INFO — Running with edr=0.23.1
+2026-04-09 09:23:08 — DEBUG — Resolved adapter type 'snowflake' for target 'elementary'
+2026-04-09 09:23:08 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:24:43 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 2725
+2026-04-09 09:24:43 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:25:03 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 485
+2026-04-09 09:25:03 — INFO — edr (0.23.1) and Elementary's dbt package (0.23.0) are compatible.
+2026-04-09 09:25:03 — DEBUG — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:25:28 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 435
+2026-04-09 09:25:28 — INFO — Elementary's database and schema: 'PRACTICE_DB.RAW'
+2026-04-09 09:25:28 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:25:57 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 125709
+2026-04-09 09:25:57 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:26:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 401
+2026-04-09 09:26:18 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:26:42 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_seeds", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 401
+2026-04-09 09:26:42 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:27:07 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_snapshots", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 401
+2026-04-09 09:27:07 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:27:29 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 2367
+2026-04-09 09:27:29 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:27:54 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 1181
+2026-04-09 09:27:54 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:28:18 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 401
+2026-04-09 09:28:18 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:28:42 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_singular_tests", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 401
+2026-04-09 09:28:42 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:29:06 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 5171
+2026-04-09 09:29:06 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:29:29 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 825
+2026-04-09 09:29:29 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:29:54 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_tests", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 33023
+2026-04-09 09:29:54 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:30:17 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 1387
+2026-04-09 09:30:17 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:30:39 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 7947
+2026-04-09 09:30:39 — INFO — Running dbt command --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary
+2026-04-09 09:31:04 — DEBUG — Result bytes size for command '--log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /mnt/d/practice_2/.venv/lib/python3.12/site-packages/elementary/monitor/dbt_project --profiles-dir /home/muneebahmad/.dbt --target elementary' is 1289
